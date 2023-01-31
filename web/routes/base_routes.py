@@ -1,4 +1,4 @@
-from receiver import app
+from web import app
 import flask
 
 
