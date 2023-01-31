@@ -1,0 +1,5 @@
+name: paradise_in_a_box
+dev_dependencies:
+  sass: ^1.52.1
+environment:
+  sdk: '>=2.10.0 <3.0.0'

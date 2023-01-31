@@ -1,0 +1,16 @@
+
+.content-section {
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 3px 2px #f1f1f1;
+    background-color: #fff;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.rounded-img {
+    border-radius: 1rem;
+}
