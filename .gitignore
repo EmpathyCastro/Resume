@@ -5,3 +5,4 @@ __pycache__
 pubspec.lock
 .dart_tool
 web/private
+flask_env.json
