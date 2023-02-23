@@ -16,7 +16,7 @@ function checkElementLocation() {
 
   $('.fade-in-section').each(function(i) {
     let $that = $(this);
-    let top_of_object = $that.position().top;
+    let top_of_object = $that.position().top - $(window).height()*0.1;
 
     // if element is in viewport, add the animate class
     if (bottom_of_window > top_of_object) {
@@ -25,26 +25,11 @@ function checkElementLocation() {
   });
 }
 
-function updateFillerElements() {
-  $(".filler-splash").height($(".bg-splash").height());
-}
-
-function fullWidthElements() {
-  $(".full-width").width($("body").width());
-}
-
 // if in viewport, show the animation
 $(document).ready(function() {
   checkElementLocation();
-  updateFillerElements();
-  fullWidthElements();
 });
 
 $(window).on('scroll', function() {
   checkElementLocation();
-});
-
-$(window).on('resize', function() {
-  updateFillerElements();
-  fullWidthElements();
 });
