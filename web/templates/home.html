@@ -19,7 +19,7 @@
               <h5 class="font-light mt-3">Lead Full Stack Developer at <a class="text-white" href="https://www.colorado.edu/center/cuchange/">CUChange</a></h5>
               <div class="mt-3">
                 <a class="btn btn-sm btn-light text-muted me-2">View Portfolio</a>
-                <a class="btn btn-sm btn-light text-muted">Contact</a>
+                <a href="mailto:empathy.castro@colorado.edu" class="btn btn-sm btn-light text-muted">Contact</a>
               </div>
             </div>
           </div>
@@ -31,10 +31,78 @@
   <div class="filler-navbar"></div>
   <div class="filler-navbar"></div>
   <div class="filler-splash"></div>
-  <h1 class="mt-5 text-center">
+  <h1 class="mt-5 text-center text-muted">
     Resume
   </h1>
+  <div class="mt-2">
+    <a class="text-muted" href="{{ url_for("static", filename="pdf/Resume.pdf") }}" target="_blank"><span class="fa-solid fa-download"></span> Download resume as PDF</a>
+  </div>
   <div class="mt-4">
-    <div></div>
+    <h2>Work Experience</h2>
+    <div>
+      <div class="ms-3 mt-3 block-left fade-in-section from-right">
+        <h4>CU Change</h4>
+        <div><span class="text-muted">Feb 2022 - Present</span> <span class="fas fa-chevron-right text-muted"></span> Lead Full Stack Developer and Research Assistant</div>
+        <div><span class="text-muted">Sep 2019 - Feb 2022</span> <span class="fas fa-chevron-right text-muted"></span> Data Management Student Assistant</div>
+        <ul class="mt-3">
+          <li><i>Created and maintained web apps for the use of researchers and research participants</i></li>
+          <li><i>Implemented Clean Code training for new team members</i></li>
+          <li><i>Developed Extract, Transform, Load (ETL) tools for research study data</i></li>
+        </ul>
+      </div>
+      <div class="ms-3 mt-4 block-left fade-in-section from-right">
+        <h4>Sandia National Laboratories</h4>
+        <div><span class="text-muted">Jun 2017 - Aug 2019</span> <span class="fas fa-chevron-right text-muted"></span> Computational Software Engineer Intern</div>
+        <ul class="mt-3">
+          <li><i>Worked in DevOps team for Sierra engineering simulation software</i></li>
+          <li><i>Underwent general and Clean Code training</i></li>
+          <li><i>Familiarized with Agile workflow</i></li>
+        </ul>
+      </div>
+    </div>
+    <h2 class="mt-4">Education</h2>
+    <div>
+      <div class="ms-3 mt-3 block-left fade-in-section from-right">
+        <h4>University of Colorado at Boulder</h4>
+        <div><span class="text-muted">Expected May 2023</span> <span class="fas fa-chevron-right text-muted"></span> Bachelor of Computer Science</div>
+        <div class="mt-3">
+          <div><i>GPA: 4.00/4.00</i></div>
+          <div><i>Relevant Coursework:</i></div>
+          <ul>
+            <li><i>CyberSecurity</i></li>
+            <li><i>Design and Analysis of Database Systems</i></li>
+            <li><i>Big Data Architecture</i></li>
+            <li><i>Information Visualization</i></li>
+            <li><i>Human-Computer Interaction</i></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <h2>Achievements</h2>
+    <div>
+      <div class="ms-3 mt-3 block-left fade-in-section from-right">
+        <h4>Phi Sigma Pi: National Honor Fraternity</h4>
+        <div><span class="text-muted">Sep 2021 - Present</span> <span class="fas fa-chevron-right text-muted"></span> Chapter Secretary</div>
+        <div class="mt-3">
+          <ul>
+            <li><i>Maintained and improved the chapter website</i></li>
+            <li><i>Managed membership requirements, event attendance, and other logistical processes</i></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <h2>Skills</h2>
+    <div>
+      <div class="ms-3 mt-3 block-left fade-in-section from-right">
+        <h4>Highly Proficient in Python, SQL, Git, and More</h4>
+        <div class="mt-3">
+          <ul>
+            <li><i>Python, including web frameworks such as Flask and Django</i></li>
+            <li><i>Database systems, including PostgreSQL, MongoDB, and Firestore</i></li>
+            <li><i>Git, HTML, CSS, Javascript, React, and NodeJS</i></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 {% endblock %}
