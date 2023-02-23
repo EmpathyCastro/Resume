@@ -1,4 +1,10 @@
 
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    background-color: #f8f8f8;
+}
+
 .content-section {
     padding: 20px;
     border-radius: 10px;
@@ -13,4 +19,31 @@
 
 .rounded-img {
     border-radius: 1rem;
+}
+
+.bg-transparent-blur {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.splash-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bg-splash {
+    /* gradient from green to blue */
+    background: linear-gradient(90deg, #00b09b, #96c93d);
+    width: 100vw;
+    height: 500px;
+}
+
+.filler-navbar {
+    color: white;
+    padding: 16px;
+}
+
+.filler-splash {
+    height: 500px;
 }
