@@ -45,6 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     /*left: 0;*/
 }
 
+.gradient-text {
+    background: linear-gradient(90deg, #01c4ad, #98cb4a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .bg-splash {
     /* gradient from green to blue */
     background: linear-gradient(90deg, #01c4ad, #98cb4a);
