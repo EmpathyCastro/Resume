@@ -9,11 +9,11 @@
 
     <div class="mt-4">
 
-      <div class="pe-4">
+      <div class="pe-4 d-flex flex-column">
 
-        <div class="ms-3 mt-4 block-left fade-in-section row">
+        <div class="ms-3 mt-4 mb-5 block-left fade-in-section row">
           <div class="col-sm-6 d-flex flex-column justify-content-center">
-            <div style="background-color: #cecece; height: 400px; width: 100%;"></div>
+            <img alt="Get Indigenous" src="{{ url_for("static", filename="img/projects/get_indigenous/thumbnail.png") }}">
           </div>
           <div class="text-end col-sm-6 mt-3">
             <h4>Get Indigenous</h4>
@@ -22,6 +22,10 @@
               and a checkout page. Additionally, the site has restricted-access admin pages for the client to view and manage orders.
             </div>
             <div class="mt-2 mb-3 d-flex flex-wrap justify-content-center">
+              <div class="tech-div">
+                <img alt="digitalocean" src="{{ url_for("static", filename="img/tech_icons/digitalocean.png") }}">
+                <span>DigitalOcean</span>
+              </div>
               <div class="tech-div">
                 <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/python.png") }}">
                 <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/flask.png") }}">
@@ -45,12 +49,12 @@
               </div>
             </div>
             <div>
-              <a class="me-2 mt-3 btn btn-info">View Site</a> <a class="btn mt-3 btn-gradient">More About This</a>
+              <a class="me-2 mt-3 btn btn-info" href="https://getindigenous.com/" target="_blank">View Site</a> <!--<a class="btn mt-3 btn-gradient">More About This</a>-->
             </div>
           </div>
         </div>
 
-        <div class="ms-3 mt-5 block-right fade-in-section row">
+        <div class="ms-3 mt-5 mb-5 block-right fade-in-section row">
           <div class="text-start col-sm-6 mt-3">
             <h4>Phi Sigma Pi: Attendance Management</h4>
             <div>
@@ -62,6 +66,10 @@
               attendance requirements.
             </div>
             <div class="mt-2 mb-3 d-flex flex-wrap justify-content-center">
+              <div class="tech-div">
+                <img alt="heroku" src="{{ url_for("static", filename="img/tech_icons/heroku.png") }}">
+                <span>Heroku</span>
+              </div>
               <div class="tech-div">
                 <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/python.png") }}">
                 <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/flask.png") }}">
@@ -81,15 +89,15 @@
               </div>
             </div>
             <div>
-              <a class="btn mt-3 btn-gradient">More About This</a>
+{#              <a class="btn mt-3 btn-gradient">More About This</a>#}
             </div>
           </div>
           <div class="col-sm-6 d-flex flex-column justify-content-center">
-            <div style="background-color: #cecece; height: 400px; width: 100%;"></div>
+            <img alt="Get Indigenous" src="{{ url_for("static", filename="img/projects/psp_attendance/thumbnail.png") }}">
           </div>
         </div>
 
-        <div class="ms-3 mt-5 block-left fade-in-section row">
+        <div class="ms-3 mt-5 mb-5 block-left fade-in-section row">
           <div class="col-sm-6 d-flex flex-column justify-content-center">
             <div style="background-color: #cecece; height: 400px; width: 100%;"></div>
           </div>
@@ -103,6 +111,10 @@
               While the project was technically finished, it was never launched.
             </div>
             <div class="mt-2 mb-3 d-flex flex-wrap justify-content-center">
+              <div class="tech-div">
+                <img alt="heroku" src="{{ url_for("static", filename="img/tech_icons/heroku.png") }}">
+                <span>Heroku</span>
+              </div>
               <div class="tech-div">
                 <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/python.png") }}">
                 <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/flask.png") }}">
@@ -122,7 +134,73 @@
               </div>
             </div>
             <div>
-              <a class="btn mt-3 btn-gradient">More About This</a>
+{#              <a class="btn mt-3 btn-gradient">More About This + Demo</a>#}
+            </div>
+          </div>
+        </div>
+
+        <div class="ms-3 mt-5 mb-5 block-right fade-in-section row">
+          <div class="text-start col-sm-6 mt-3">
+            <h4>CUChange: Ideal ETL</h4>
+            <div>
+              While I helped develop many web apps for CUChange, this one was the biggest and most complex. The team had inherited
+              a legacy Extract, Transform, Load (ETL) system that was difficult to maintain due to its complexity. The goal of this project
+              was to create a new ETL system that used a universal process to extract data from any study, transform it into a common format,
+              and load it into the laboratory's database.
+            </div>
+            <div class="mt-2 mb-3 d-flex flex-wrap justify-content-center">
+              <div class="tech-div">
+                <img alt="heroku" src="{{ url_for("static", filename="img/tech_icons/heroku.png") }}">
+                <span>Heroku</span>
+              </div>
+              <div class="tech-div">
+                <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/python.png") }}">
+                <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/flask.png") }}">
+                <span>Python + Flask</span>
+              </div>
+              <div class="tech-div">
+                <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/mongodb.png") }}">
+                <span>MongoDB</span>
+              </div>
+            </div>
+            <div>
+{#              <a class="btn mt-3 btn-gradient">More About This</a>#}
+            </div>
+          </div>
+          <div class="col-sm-6 d-flex flex-column justify-content-center">
+            <img alt="Get Indigenous" src="{{ url_for("static", filename="img/projects/ideal_etl/thumbnail.png") }}">
+          </div>
+        </div>
+
+        <div class="ms-3 mt-5 mb-5 block-left fade-in-section row">
+          <div class="col-sm-6 d-flex flex-column justify-content-center">
+            <img alt="Get Indigenous" src="{{ url_for("static", filename="img/projects/paradise_box/thumbnail.png") }}">
+          </div>
+          <div class="text-end col-sm-6 mt-3">
+            <h4>Paradise In a Box</h4>
+            <div>
+              This site was created for a small business based in Hawaii. They specialize in selling gift boxes containing
+              authentic Hawaiian snacks. The client, whose shop is on Etsy, wanted a simple site
+              that would allow them to showcase their products. They wanted a dedicated site for their brand to show to
+              customers instead of just linking to their Etsy shop.
+            </div>
+            <div class="mt-2 mb-3 d-flex flex-wrap justify-content-center">
+              <div class="tech-div">
+                <img alt="heroku" src="{{ url_for("static", filename="img/tech_icons/heroku.png") }}">
+                <span>Heroku</span>
+              </div>
+              <div class="tech-div">
+                <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/python.png") }}">
+                <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/flask.png") }}">
+                <span>Python + Flask</span>
+              </div>
+              <div class="tech-div">
+                <img alt="bootstrap" src="{{ url_for("static", filename="img/tech_icons/bootstrap.png") }}">
+                <span>Bootstrap</span>
+              </div>
+            </div>
+            <div>
+              <a class="me-2 mt-3 btn btn-info" href="https://www.yourparadisebox.com/" target="_blank">View Site</a> <!--<a class="btn mt-3 btn-gradient">More About This</a>-->
             </div>
           </div>
         </div>

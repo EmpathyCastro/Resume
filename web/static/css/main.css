@@ -67,6 +67,10 @@ h1, h2, h3, h4, h5, h6 {
     background-position: right center;
 }
 
+.btn-gradient:focus {
+    box-shadow: 0 0 0 0.25rem rgba(1, 196, 173, 0.5);
+}
+
 .bg-splash {
     /* gradient from green to blue */
     background: linear-gradient(90deg, #01c4ad, #98cb4a);
