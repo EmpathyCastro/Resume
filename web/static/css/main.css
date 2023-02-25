@@ -51,6 +51,22 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
 }
 
+.btn-gradient {
+    flex: 1 1 auto;
+    background: linear-gradient(to right, #01c4ad, #6acb4a, #01c4ad);
+    background-size: 200% auto;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn-gradient:hover {
+    color: white;
+    /*background: linear-gradient(90deg, #98cb4a, #01c4ad);*/
+    background-position: right center;
+}
+
 .bg-splash {
     /* gradient from green to blue */
     background: linear-gradient(90deg, #01c4ad, #98cb4a);
@@ -112,4 +128,23 @@ h1, h2, h3, h4, h5, h6 {
 .block-right {
     border-right: 2px solid #d9d9d9;
     padding-right: 10px;
+}
+
+.tech-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tech-div > img {
+    height: 25px;
+    margin-right: 5px;
+}
+
+.tech-div > span {
+    margin-left: 5px;
+    font-weight: 600;
 }
