@@ -1,0 +1,31 @@
+<div class="splash-container w-100">
+  <div class="filler-navbar">.</div>
+  <div class="bg-splash pt-4 pb-4">
+    <div class="d-flex justify-content-center flex-wrap">
+      <div class="text-center d-flex justify-content-center">
+        <div class="ms-5 me-5 d-flex flex-column justify-content-center">
+          <div class="circle-img-container">
+            <img class="circle-img" alt="Empathy" src="{{ url_for("static", filename="img/main_picture.jpg") }}" height="200">
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column justify-content-center">
+        <div class="splash-text-container">
+          <div>
+            <h1>Empathy Castro-Chilton <span class="font-light">(she/her)</span></h1>
+            <h5 class="font-light mt-3">Lead Full Stack Developer at <a class="text-white" href="https://www.colorado.edu/center/cuchange/">CUChange</a></h5>
+            <div class="mt-3">
+              {% if portfolio_btn %}
+                <a class="btn btn-sm btn-light text-muted me-2" href="{{ url_for("portfolio") }}">View Portfolio</a>
+              {% endif %}
+              {% if resume_btn %}
+                <a class="btn btn-sm btn-light text-muted me-2" href="{{ url_for("resume") }}">View Resume</a>
+              {% endif %}
+              <a href="mailto:empathy.castro@colorado.edu" class="btn btn-sm btn-light text-muted">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
