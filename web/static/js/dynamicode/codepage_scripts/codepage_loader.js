@@ -366,8 +366,8 @@ let sliderBlockClass = Sk.misceval.buildClass({}, function($glb, $loc) {
 
         self.slider.on("input", () => {
             let value = (parseFloat(self.slider.val())/100) * (self.upper - self.lower) + self.lower
-            self.value = parseFloat(value)
-            self.valueLabel.text(Math.round(self.value))
+            self.value = Math.round(parseFloat(value))
+            self.valueLabel.text(self.value)
         })
         self.value = defaultValue
         self.slider.val((defaultValue - self.lower) / (self.upper - self.lower) * 100)
