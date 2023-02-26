@@ -392,15 +392,15 @@ button.editable-end-button {
 /********BUTTONS*******/
 /**********************/
 
-.btn {
-	font-size: 1.1rem;
-	color: white;
-	font-family: Roboto, sans-serif;
-	background-color: #2C7DA0;
-	border-color: #2C7DA0;
-	box-shadow: 0 3px 2px 1px rgba(0,0,0,.2);
-	text-decoration: none;
-}
+/*.btn {*/
+/*	font-size: 1.1rem;*/
+/*	color: white;*/
+/*	font-family: Roboto, sans-serif;*/
+/*	background-color: #2C7DA0;*/
+/*	border-color: #2C7DA0;*/
+/*	box-shadow: 0 3px 2px 1px rgba(0,0,0,.2);*/
+/*	text-decoration: none;*/
+/*}*/
 
 .btn-danger {
 	background-color: #b96767;

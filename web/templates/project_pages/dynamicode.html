@@ -10,9 +10,81 @@
 
 {% block content %}
 
-{#    <div class="container">#}
-      <div id="codepage" class="col-lg overflow-scroll mt-4"></div>
-{#    </div>#}
+  <div class="m-4">
+    <a href="{{ url_for("portfolio") }}" class="text-decoration-none"><span class="fas fa-arrow-left"></span> Back</a>
+  </div>
+
+  <div class="mt-3">
+    <div>
+      <h1 class="text-center gradient-text">DynamiCode</h1>
+      <div class="mt-4">
+        <p>
+          This experimental web app was created around the idea of dynamic social media posts. The idea is that users can create posts
+          that contain Python code snippets. Users that view the post can then run the code snippets in their browser see how the code
+          changes the post. Posts could also include interactive elements like sliders and dropdowns. The snippets are run in a sandboxed
+          environment using <a href="https://skulpt.org/">Skulpt</a>, so the code can't access the server or sensitive information on the browser.
+        </p>
+        <p>
+          DynamiCode was a collaboration of four people, including myself. I was responsible for implementation of the in-browser Python snippets
+          and the creation of user posts. While the project was technically finished, it was never launched. Included on this page is a demonstration
+          of the project.
+        </p>
+        <p></p>
+      </div>
+      <div class="row mt-4">
+        <div class="col-sm-6 ps-2 pe-2">
+          <h5 class="text-center">Features</h5>
+          <ul>
+            <li>User authentication using up-to-date security practices, such as salt+hash passwords.</li>
+            <li>Users can create posts with Python code snippets run in browsers.</li>
+            <li>Learning modules: Educational pages teaching the basics of Python utilizing in-browser Python snippets.</li>
+          </ul>
+        </div>
+        <div class="col-sm-6 ps-2 pe-2">
+          <h5 class="text-center">Technologies</h5>
+          <div class="mt-2 mb-3 d-flex flex-wrap justify-content-center">
+            <div class="tech-div">
+              <img alt="heroku" src="{{ url_for("static", filename="img/tech_icons/heroku.png") }}">
+              <span>Heroku</span>
+            </div>
+            <div class="tech-div">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/python.png") }}">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/flask.png") }}">
+              <span>Python + Flask</span>
+            </div>
+            <div class="tech-div">
+              <img alt="bootstrap" src="{{ url_for("static", filename="img/tech_icons/bootstrap.png") }}">
+              <span>Bootstrap</span>
+            </div>
+            <div class="tech-div">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/postgresql.png") }}">
+              <span>PostgreSQL</span>
+            </div>
+            <div class="tech-div">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/skulpt.png") }}">
+              <span>Skulpt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <div>
+        <label for="demoSource" class="h5"><b>Demo Source Code</b></label>
+        <div>The web app itself has a visual editor for creating posts, but for the sake of demonstration,
+          the "source code" for the demo is shown below. It's in a JSON format and can be modified freely.</div>
+      </div>
+      <div class="mt-3">
+        <textarea id="demoSource" class="form-control text-mono" rows="5">{{ demo|safe }}</textarea>
+      </div>
+      <div class="justify-content-end">
+        <button onclick="load_demo()" class="mt-2 btn btn-gradient text-white text-end">Load Demo</button>
+      </div>
+    </div>
+
+    <div id="codepage" class="col-lg overflow-scroll mt-5"></div>
+  </div>
 
 {% endblock content %}
 
@@ -40,7 +112,11 @@
 
     <script>
         const EDIT_URL = ''
-        let editable = load_codepage("codepage", {{ demo|tojson|safe }}, false)
+        function load_demo() {
+            let demo = document.getElementById('demoSource').value
+            $("#codepage").empty()
+            load_codepage("codepage", JSON.parse(demo), false)
+        }
     </script>
 
 {% endblock scripts %}
