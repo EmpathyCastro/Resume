@@ -41,7 +41,7 @@
               </div>
               <div class="tech-div">
                 <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/paypal.png") }}">
-                <span>Paypal API</span>
+                <span>PayPal API</span>
               </div>
               <div class="tech-div">
                 <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/gmail.png") }}">
@@ -49,7 +49,8 @@
               </div>
             </div>
             <div>
-              <a class="me-2 mt-3 btn btn-info" href="https://getindigenous.com/" target="_blank">View Site</a> <!--<a class="btn mt-3 btn-gradient">More About This</a>-->
+              <a class="me-2 mt-3 btn btn-info" href="https://getindigenous.com/" target="_blank">View Site</a>
+              <a class="btn mt-3 btn-gradient" href="{{ url_for("projects", project="get_indigenous") }}">More About This</a>
             </div>
           </div>
         </div>
