@@ -61,7 +61,7 @@
             <div>
               When I was elected the Chapter Secretary of Phi Sigma Pi, I took it upon myself to overhaul our attendance tracking process.
               Previously, we had been using a Google Forms and Sheets system, which took a fair amount of work to maintain and mistakes
-              were easy to make. So, I created a web app that allowed members to submit attendance for meetings and events, and the officers
+              were easy to make. I created a web app that allowed members to submit attendance for meetings and events, and the officers
               to view and manage the fraternity's attendance records. The app allows officers to view attendance records for individual
               members, as well as for the entire fraternity. Additionally, members are able to see their progress towards the fraternity's
               attendance requirements.
@@ -90,7 +90,7 @@
               </div>
             </div>
             <div>
-{#              <a class="btn mt-3 btn-gradient">More About This</a>#}
+              <a class="btn mt-3 btn-gradient" href="{{ url_for("projects", project="psp_attendance") }}">More About This</a>
             </div>
           </div>
           <div class="col-sm-6 d-flex flex-column justify-content-center">
@@ -164,7 +164,7 @@
               </div>
             </div>
             <div>
-{#              <a class="btn mt-3 btn-gradient">More About This</a>#}
+              <a class="btn mt-3 btn-gradient" href="{{ url_for("projects", project="ideal_etl") }}">More About This</a>
             </div>
           </div>
           <div class="col-sm-6 d-flex flex-column justify-content-center">
@@ -200,7 +200,8 @@
               </div>
             </div>
             <div>
-              <a class="me-2 mt-3 btn btn-info" href="https://www.yourparadisebox.com/" target="_blank">View Site</a> <!--<a class="btn mt-3 btn-gradient">More About This</a>-->
+              <a class="me-2 mt-3 btn btn-info" href="https://www.yourparadisebox.com/" target="_blank">View Site</a>
+              <a class="btn mt-3 btn-gradient" href="{{ url_for("projects", project="paradise_box") }}">More About This</a>
             </div>
           </div>
         </div>

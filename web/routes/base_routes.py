@@ -55,6 +55,30 @@ def get_project_images(project):
              "alt": "Get Indigenous Checkout Page"},
             {"src": flask.url_for("static", filename="img/projects/get_indigenous/img4.png"),
              "alt": "Get Indigenous Order Payment Page"}
+        ],
+        "psp_attendance": [
+            {"src": flask.url_for("static", filename="img/projects/psp_attendance/img1.png"),
+             "alt": "PSP Home Page"},
+            {"src": flask.url_for("static", filename="img/projects/psp_attendance/img2.png"),
+             "alt": "PSP Admin Home Page"},
+            {"src": flask.url_for("static", filename="img/projects/psp_attendance/img3.png"),
+             "alt": "PSP Admin Events Page"},
+            {"src": flask.url_for("static", filename="img/projects/psp_attendance/img4.png"),
+             "alt": "PSP Admin Attendance Reports Page"}
+        ],
+        "paradise_box": [
+            {"src": flask.url_for("static", filename="img/projects/paradise_box/img1.png"),
+             "alt": "Paradise Box Home Page 1"},
+            {"src": flask.url_for("static", filename="img/projects/paradise_box/img2.png"),
+             "alt": "Paradise Box Home Page 2"}
+        ],
+        "ideal_etl": [
+            {"src": flask.url_for("static", filename="img/projects/ideal_etl/img1.png"),
+             "alt": "Ideal ETL Dashboard"},
+            {"src": flask.url_for("static", filename="img/projects/ideal_etl/img2.png"),
+             "alt": "Ideal ETL Settings Page"},
+            {"src": flask.url_for("static", filename="img/projects/ideal_etl/img3.png"),
+             "alt": "Ideal ETL Advanced Search Page"}
         ]
     }
     return data.get(project)

@@ -8,16 +8,18 @@
 
   <div class="mt-3">
     <div>
-      <h1 class="text-center gradient-text">CUChange: Ideal ETL</h1>
+      <h1 class="text-center gradient-text">Phi Sigma Pi: Attendance Management</h1>
       <div class="mt-4">
         {% include "project_pages/carousel.html" %}
       </div>
       <div class="mt-4">
         <p>
-          While I helped develop many web apps for CUChange, this one was the biggest and most complex. The team had inherited
-          a legacy Extract, Transform, Load (ETL) system that was difficult to maintain due to its complexity. The goal of this project
-          was to create a new ETL system that used a universal process to extract data from any study, transform it into a common format,
-          and load it into the laboratory's database.
+          When I was elected the Chapter Secretary of Phi Sigma Pi, I took it upon myself to overhaul our attendance tracking process.
+          Previously, we had been using a Google Forms and Sheets system, which took a fair amount of work to maintain and mistakes
+          were easy to make. I created a web app that allowed members to submit attendance for meetings and events, and the officers
+          to view and manage the fraternity's attendance records. The app allows officers to view attendance records for individual
+          members, as well as for the entire fraternity. Additionally, members are able to see their progress towards the fraternity's
+          attendance requirements.
         </p>
       </div>
       <div class="row mt-4">
@@ -25,8 +27,8 @@
           <h5 class="text-center">Features</h5>
           <ul>
             <li>User authentication using up-to-date security practices, such as salt+hash passwords.</li>
-            <li>Includes a universal Extract, Transform, Load process.</li>
-            <li>Multi-field record search.</li>
+            <li>Permission system to give individual access to users for certain pages.</li>
+            <li>Email notifications using the Gmail API.</li>
           </ul>
         </div>
         <div class="col-sm-6 ps-2 pe-2">
@@ -42,8 +44,16 @@
               <span>Python + Flask</span>
             </div>
             <div class="tech-div">
+              <img alt="bootstrap" src="{{ url_for("static", filename="img/tech_icons/bootstrap.png") }}">
+              <span>Bootstrap</span>
+            </div>
+            <div class="tech-div">
               <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/mongodb.png") }}">
               <span>MongoDB</span>
+            </div>
+            <div class="tech-div">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/gmail.png") }}">
+              <span>Gmail API</span>
             </div>
           </div>
         </div>
