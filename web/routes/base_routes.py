@@ -3,11 +3,6 @@ import flask
 from web.routes.dynamicode import get_dynamicode_demo_data
 
 
-@app.route("/")
-def home():
-    return flask.redirect(flask.url_for("resume"))
-
-
 @app.errorhandler(404)
 def page_not_found(_):
     return flask.render_template("404.html"), 404
@@ -16,6 +11,11 @@ def page_not_found(_):
 @app.errorhandler(500)
 def internal_server_error(_):
     return flask.render_template("500.html"), 500
+
+
+@app.route("/")
+def home():
+    return flask.render_template("home.html", no_container=True)
 
 
 @app.route("/resume")
