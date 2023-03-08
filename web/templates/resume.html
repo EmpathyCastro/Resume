@@ -1,11 +1,8 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  {% include "splash.html" %}
-  <div class="mt-5 container">
-    <h1 class="mt-5 text-center text-muted gradient-text">
-      Resume
-    </h1>
+  {% include "splash_mini.html" %}
+  <div class="mt-3 container">
     <div class="mt-2">
       <a class="text-muted" href="{{ url_for("static", filename="pdf/Resume.pdf") }}" target="_blank"><span class="fa-solid fa-download"></span> Download resume as PDF</a>
     </div>
@@ -13,7 +10,7 @@
       <h2 class="mt-4 fade-in-section">Work Experience</h2>
       <div>
         <div class="ms-3 mt-3 block-left fade-in-section">
-          <h4>CU Change</h4>
+          <h4>CU Change <a class="text-decoration-none" href="https://www.colorado.edu/center/cuchange/" target="_blank"><span class="fas fa-up-right-from-square"></span></a></h4>
           <div><span class="text-muted">Feb 2022 - Present</span> <span class="fas fa-chevron-right text-muted"></span> Lead Full Stack Developer and Research Assistant</div>
           <div><span class="text-muted">Sep 2019 - Feb 2022</span> <span class="fas fa-chevron-right text-muted"></span> Data Management Student Assistant</div>
           <ul class="mt-3">
@@ -21,15 +18,21 @@
             <li><i>Implemented Clean Code training for new team members</i></li>
             <li><i>Developed Extract, Transform, Load (ETL) tools for research study data</i></li>
           </ul>
+          <div>“Operating out of the Department of Psychology and Neuroscience and the Institute of Cognitive Science,
+            CUChange... conducts transdisciplinary research to explore the psychological, neurocognitive, physiological,
+            genetic, and epigenetic factors that are linked with health and risk behavior.”</div>
         </div>
         <div class="ms-3 mt-4 block-left fade-in-section">
-          <h4>Sandia National Laboratories</h4>
+          <h4>Sandia National Laboratories <a class="text-decoration-none" href="https://www.sandia.gov/" target="_blank"><span class="fas fa-up-right-from-square"></span></a></h4>
           <div><span class="text-muted">Jun 2017 - Aug 2019</span> <span class="fas fa-chevron-right text-muted"></span> Computational Software Engineer Intern</div>
           <ul class="mt-3">
             <li><i>Worked in DevOps team for Sierra engineering simulation software</i></li>
-            <li><i>Underwent general and Clean Code training</i></li>
-            <li><i>Familiarized with Agile workflow</i></li>
+            <li><i>Completed general and Clean Code training</i></li>
+            <li><i>Mastered Agile workflow</i></li>
           </ul>
+          “Sandia National Laboratories is a multimission laboratory managed and operated by National Technology and
+          Engineering Solutions of Sandia, LLC., a wholly owned subsidiary of Honeywell International, Inc., for the
+          U.S. Department of Energy’s National Nuclear Security Administration.“
         </div>
       </div>
       <h2 class="mt-4 fade-in-section">Education</h2>
@@ -57,8 +60,8 @@
           <div><span class="text-muted">Sep 2021 - Present</span> <span class="fas fa-chevron-right text-muted"></span> Chapter Secretary</div>
           <div class="mt-3">
             <ul>
-              <li><i>Maintained and improved the chapter website</i></li>
-              <li><i>Managed membership requirements, event attendance, and other logistical processes</i></li>
+              <li><i>Maintained, expanded, and enhanced the chapter website</i></li>
+              <li><i>Monitored and managed membership requirements, event attendance, and other logistical processes</i></li>
             </ul>
           </div>
         </div>

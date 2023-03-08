@@ -20,12 +20,12 @@ def internal_server_error(_):
 
 @app.route("/resume")
 def resume():
-    return flask.render_template("resume.html", no_container=True, portfolio_btn=True)
+    return flask.render_template("resume.html", no_container=True, splash_text="Resume")
 
 
 @app.route("/portfolio")
 def portfolio():
-    return flask.render_template("portfolio.html", no_container=True, resume_btn=True)
+    return flask.render_template("portfolio.html", no_container=True, splash_text="Portfolio")
 
 
 @app.route("/projects/<project>")
