@@ -2,8 +2,8 @@
 // Option A: Include all of Bootstrap
 
 // Include any default variable overrides here (though functions won't be available)
-$primary: #01c4ad;
-$secondary: #9dda3c;
+$primary: #06a4de;
+$secondary: #1ed969;
 $info: #e3e3e3;
 //$light: #faf9f8;
 //$body-bg: #1e1e1e;
@@ -16,4 +16,45 @@ $info: #e3e3e3;
 
 .btn {
   border-radius: 500px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, $primary, $secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-gradient {
+    flex: 1 1 auto;
+    background: linear-gradient(to right, $primary, $secondary, $primary);
+    background-size: 200% auto;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn-gradient:hover {
+    color: white;
+    /*background: linear-gradient(90deg, #98cb4a, #01c4ad);*/
+    background-position: right center;
+}
+
+.btn-gradient:focus {
+    // box shadow with transparent version of primary color
+    box-shadow: 0 0 0 0.25rem rgba(6, 164, 222, 0.5);
+}
+
+.bg-splash {
+    /* gradient from green to blue */
+    background: linear-gradient(90deg, $primary, $secondary);
+    width: 100%;
+    /*padding: 50px 100px;*/
+}
+
+.outer-modal-content {
+    background: linear-gradient(20deg, $secondary, $primary);
+    padding: 6px;
+    border-radius: 0.4rem;
+    border: 0;
 }

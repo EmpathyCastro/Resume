@@ -49,39 +49,6 @@ h1, h2, h3, h4, h5, h6 {
     /*left: 0;*/
 }
 
-.gradient-text {
-    background: linear-gradient(90deg, #01c4ad, #98cb4a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.btn-gradient {
-    flex: 1 1 auto;
-    background: linear-gradient(to right, #01c4ad, #6acb4a, #01c4ad);
-    background-size: 200% auto;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-.btn-gradient:hover {
-    color: white;
-    /*background: linear-gradient(90deg, #98cb4a, #01c4ad);*/
-    background-position: right center;
-}
-
-.btn-gradient:focus {
-    box-shadow: 0 0 0 0.25rem rgba(1, 196, 173, 0.5);
-}
-
-.bg-splash {
-    /* gradient from green to blue */
-    background: linear-gradient(90deg, #01c4ad, #98cb4a);
-    width: 100%;
-    /*padding: 50px 100px;*/
-}
-
 .filler-navbar {
     color: white;
     padding: 16px;

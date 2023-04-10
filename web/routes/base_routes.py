@@ -15,7 +15,8 @@ def internal_server_error(_):
 
 @app.route("/")
 def home():
-    return flask.render_template("home.html", no_container=True)
+    # return flask.render_template("home.html", no_container=True)
+    return flask.redirect(flask.url_for("resume"))
 
 
 @app.route("/resume")
