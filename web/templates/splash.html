@@ -2,13 +2,13 @@
   <div class="filler-navbar">.</div>
   <div class="bg-splash pt-4 pb-4">
     <div class="d-flex justify-content-center flex-wrap">
-{#      <div class="text-center d-flex justify-content-center">#}
-{#        <div class="ms-5 me-5 d-flex flex-column justify-content-center">#}
-{#          <div class="circle-img-container">#}
-{#            <img class="circle-img" alt="Empathy" src="{{ url_for("static", filename="img/main_picture.jpg") }}" height="200">#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
+      <div class="text-center d-flex justify-content-center">
+        <div class="ms-5 me-5 d-flex flex-column justify-content-center">
+          <div class="circle-img-container">
+            <img class="circle-img" alt="Empathy" src="{{ url_for("static", filename="img/main_picture.jpg") }}" height="200">
+          </div>
+        </div>
+      </div>
       <div class="d-flex flex-column justify-content-center">
         <div class="splash-text-container">
           <div>
@@ -17,7 +17,8 @@
             <div class="mt-3">
               <a class="btn btn-sm btn-light text-muted me-2" href="{{ url_for("portfolio") }}">View Portfolio</a>
 {#              <a class="btn btn-sm btn-light text-muted me-2" href="{{ url_for("resume") }}">View Resume</a>#}
-              <a class="btn btn-sm btn-light text-muted" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+              <a class="btn btn-sm btn-light text-muted me-2" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+              <a class="btn btn-sm btn-light text-muted" href="{{ url_for("linkedin") }}"><span class="fa-brands fa-linkedin"></span> LinkedIn</a>
             </div>
           </div>
         </div>

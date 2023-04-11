@@ -19,6 +19,11 @@ def home():
     return flask.redirect(flask.url_for("resume"))
 
 
+@app.route("/linkedin")
+def linkedin():
+    return flask.redirect("https://www.linkedin.com/in/empathy-castro-chilton-77a7bb245/")
+
+
 @app.route("/resume")
 def resume():
     return flask.render_template("resume.html", no_container=True, splash_text="Resume")
