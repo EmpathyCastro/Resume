@@ -22,7 +22,7 @@ def home():
 @app.route("/linkedin")
 @app.route("/LinkedIn")
 def linkedin():
-    return flask.redirect("https://www.linkedin.com/in/empathy-castro-chilton-77a7bb245/")
+    return flask.redirect("https://www.linkedin.com/in/empathy-castro/")
 
 
 @app.route("/resume")
