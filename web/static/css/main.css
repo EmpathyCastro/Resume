@@ -123,3 +123,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 5px;
     font-weight: 600;
 }
+
+.carousel-img {
+    aspect-ratio: auto;
+}

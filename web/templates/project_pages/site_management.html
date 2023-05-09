@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="m-4">
+    <a href="{{ url_for("portfolio") }}" class="text-decoration-none"><span class="fas fa-arrow-left"></span> Back</a>
+  </div>
+
+  <div class="mt-3">
+    <div>
+      <h1 class="text-center gradient-text">Project Site Management Utility</h1>
+      <div class="mt-4">
+        {% include "project_pages/carousel.html" %}
+      </div>
+      <div class="mt-4">
+        <p>
+          Created a web app for my Computer Science Capstone project as part of a team of six. The app enables
+          users to create and manage project sites, which are used to track zones, materials, personnel, etc. within
+          a construction project. Contributed to the frond-end development of the app, using React, Axios, and
+          Bootstrap extensively.
+        </p>
+      </div>
+      <div class="row mt-4">
+        <div class="col-sm-6 ps-2 pe-2">
+          <h5 class="text-center">Features</h5>
+          <ul>
+            <li>Boundary creation through interactions with map using Leaflet (a JavaScript map library).</li>
+            <li>Create, edit, and move resources within projects.</li>
+            <li>Show on-screen notifications when resources are modified.</li>
+            <li>Deployed using AWS.</li>
+          </ul>
+        </div>
+        <div class="col-sm-6 ps-2 pe-2">
+          <h5 class="text-center">Technologies</h5>
+          <div class="mt-2 mb-3 d-flex flex-wrap justify-content-center">
+            <div class="tech-div">
+              <img alt="digitalocean" src="{{ url_for("static", filename="img/tech_icons/react.png") }}">
+              <span>React</span>
+            </div>
+            <div class="tech-div">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/python.png") }}">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/lambda.png") }}">
+              <span>Python + AWS Lambda</span>
+            </div>
+            <div class="tech-div">
+              <img alt="bootstrap" src="{{ url_for("static", filename="img/tech_icons/bootstrap.png") }}">
+              <span>Bootstrap</span>
+            </div>
+            <div class="tech-div">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/dynamodb.png") }}">
+              <span>AWS DynamoDB</span>
+            </div>
+            <div class="tech-div">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/api_gateway.png") }}">
+              <span>AWS API Gateway</span>
+            </div>
+            <div class="tech-div">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/leaflet.png") }}">
+              <span>Leaflet</span>
+            </div>
+            <div class="tech-div">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/axios.png") }}">
+              <span>Axios</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

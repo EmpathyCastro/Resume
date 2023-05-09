@@ -42,7 +42,9 @@ def projects(project):
         "get_indigenous": "project_pages/get_indigenous.html",
         "ideal_etl": "project_pages/ideal_etl.html",
         "paradise_box": "project_pages/paradise_box.html",
-        "psp_attendance": "project_pages/psp_attendance.html"
+        "psp_attendance": "project_pages/psp_attendance.html",
+        "site_management": "project_pages/site_management.html",
+        "cve_dashboard": "project_pages/cve_dashboard.html"
     }
     if project in project_pages:
         return flask.render_template(project_pages[project], demo=get_dynamicode_demo_data(),
@@ -86,6 +88,24 @@ def get_project_images(project):
              "alt": "Ideal ETL Settings Page"},
             {"src": flask.url_for("static", filename="img/projects/ideal_etl/img3.png"),
              "alt": "Ideal ETL Advanced Search Page"}
+        ],
+        "site_management": [
+            {"src": flask.url_for("static", filename="img/projects/site_management/img1.png"),
+             "alt": "Site Management Projects View"},
+            {"src": flask.url_for("static", filename="img/projects/site_management/img2.png"),
+             "alt": "Site Management Project 1"},
+            {"src": flask.url_for("static", filename="img/projects/site_management/img3.png"),
+             "alt": "Site Management Project 2"}
+        ],
+        "cve_dashboard": [
+            {"src": flask.url_for("static", filename="img/projects/cve_dashboard/img1.png"),
+             "alt": "CVE Dashboard Sign In/Sign Up Page"},
+            {"src": flask.url_for("static", filename="img/projects/cve_dashboard/thumbnail.jpeg"),
+             "alt": "CVE Dashboard Vulnerability Types Page"},
+            {"src": flask.url_for("static", filename="img/projects/cve_dashboard/img2.jpeg"),
+             "alt": "CVE Dashboard Top Vulnerabilities Page"},
+            {"src": flask.url_for("static", filename="img/projects/cve_dashboard/img3.jpeg"),
+             "alt": "CVE Dashboard Products Page"}
         ]
     }
     return data.get(project)
