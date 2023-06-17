@@ -19,6 +19,11 @@ def home():
     return flask.redirect(flask.url_for("resume"))
 
 
+@app.route("/status")
+def status():
+    return "OK"
+
+
 @app.route("/linkedin")
 @app.route("/LinkedIn")
 def linkedin():
