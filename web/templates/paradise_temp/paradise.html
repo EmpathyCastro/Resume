@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/paradise_temp.css') }}">
+{% endblock head %}
+{% block content %}
+
+  <div>
+    <div class="stats-container mt-4">
+      <div class="d-flex justify-content-between ps-2 pe-2 pt-2">
+          <div><h2>Total</h2></div>
+          <div><h2><span id="total_earned">$0.00</span></h2></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-around flex-wrap mb-4">
+    {% for product in products %}
+      <div class="stats-container mt-4">
+        <div>
+          <div class="d-flex justify-content-start h-100">
+{#            <img alt="" height="60" src="{{ url_for("get_image", image_id=character["image_id"]) }}">#}
+            <div class="ml-3 stats-edit-header">
+              <div class="h3 me-4">{{ product["product_name"] }}</div>
+              <div class="h5 text-muted">{{ product.get_pretty_price() }}</div>
+            </div>
+          </div>
+          <div>
+            <table class="table table-striped mt-3">
+            <thead>
+{#              <tr>#}
+{#                <th>-1</th>#}
+{#                <th>+1</th>#}
+{#              </tr>#}
+            </thead>
+            <tbody>
+              <tr>
+                <td class="align-middle">Amount Sold</td>
+                <td>
+                  <button class="btn btn-sm btn-outline-danger" style="width: 34px;" onclick="submit_sale_change('{{ product['_id'] }}', '{{ product['product_name'] }}', -1)"> - </button>
+                  <span id="amount_sold_{{ product["_id"] }}" class="ms-2 me-2">{{ product["amount_sold"] }}</span>
+                  <button class="btn btn-sm btn-success" style="width: 34px;" onclick="submit_sale_change('{{ product['_id'] }}', '{{ product['product_name'] }}', 1)"> + </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="align-middle">Total Earned</td>
+                <td id="total_earned_{{ product["_id"] }}">{{ product.get_pretty_total_earned() }}</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock content %}
+
+{% block scripts %}
+  <script>
+
+
+      let total = 0;
+
+      function get_pretty_price(num) {
+          return "$" + num.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+      }
+
+      function update_total(change) {
+          total += change;
+          $("#total_earned").text(get_pretty_price(total));
+      }
+
+      function update_product_total(product_id, new_amount_sold, new_amount_earned) {
+          $("#amount_sold_" + product_id).text(new_amount_sold);
+          $("#total_earned_" + product_id).text(new_amount_earned);
+      }
+
+      function post_sale_update(product_id, new_amount_sold, new_amount_earned, total_change) {
+          update_total(total_change);
+          update_product_total(product_id, new_amount_sold, new_amount_earned);
+      }
+
+      update_total({{ total_earned }})
+
+      function submit_sale_change(product_id, product_name, amount_change) {
+          let url = "{{ url_for('modify_sale') }}";
+          let data = {
+              "product_id": product_id,
+              "product_name": product_name,
+              "amount": amount_change
+          };
+          get_ajax_data_result(url, data, function(result) {
+              post_sale_update(product_id, result["amount_sold"], result["pretty_total_earned"], result["total_change"]);
+          });
+      }
+
+      function get_ajax_data_result(url, data, success_callback, error_callback) {
+          $.ajax({
+              type: "POST",
+              url: url,
+              data: JSON.stringify(data),
+              contentType: "application/json",
+              success: function(result) {
+                  success_callback(result)
+              },
+              error: function() {
+                  if (error_callback) error_callback()
+              },
+              cache: false,
+              processData: false
+             })
+      }
+
+  </script>
+{% endblock scripts %}

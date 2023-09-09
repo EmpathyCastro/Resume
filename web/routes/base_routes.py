@@ -1,6 +1,7 @@
 from web import app
 import flask
 from web.routes.dynamicode import get_dynamicode_demo_data
+from web.paradise_temp import paradise_routes
 
 
 @app.errorhandler(404)
