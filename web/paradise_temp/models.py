@@ -1,5 +1,6 @@
 from web.paradise_temp.db import BaseDocument, DB, DataType, ReferenceType, DictType, ListType
 from datetime import datetime
+from io import BytesIO
 
 
 class Sale(BaseDocument):
@@ -37,6 +38,18 @@ class ParadiseImage(BaseDocument):
         "image": DataType(bytes, nullable=False)
     }
 
+    @staticmethod
+    def upload_image(image):
+        image_data = BytesIO()
+        image.data.save(image_data)
+        image_data.seek(0)
+        img = ParadiseImage({
+            "extension": image.data.filename.split(".")[-1],
+            "image": image_data.read()
+        })
+        img.push()
+        return img["_id"]
+
 
 class InventoryItem(BaseDocument):
     collection = DB.inventory_items
@@ -57,25 +70,3 @@ class InventoryBox(BaseDocument):
         }), nullable=False),
         "image_id": ReferenceType(nullable=True)
     }
-
-    def get_item_ids(self):
-        return [item["item_id"] for item in self["items"]]
-
-    def get_amount(self, items):
-        item_ids = self.get_item_ids()
-        if items:
-            items = [item for item in items if item["_id"] in item_ids]
-        else:
-            items = list(InventoryItem.find({"_id": {"$in": self["items"]}}))
-
-        max_amount = -1
-        for item in items:
-            item_box_amount = self.get_item_box_amount(item, item_ids)
-            if max_amount == -1 or item_box_amount < max_amount:
-                max_amount = item_box_amount
-
-        return max(max_amount, 0)
-
-    def get_item_box_amount(self, item, item_ids):
-        item_index = item_ids.index(item["_id"])
-        return item["amount"] // self["items"][item_index]["amount"]

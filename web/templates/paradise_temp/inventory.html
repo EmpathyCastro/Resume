@@ -1,22 +1,44 @@
 {% extends "layout.html" %}
 {% block head %}
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/paradise_temp.css') }}">
+  <style>
+    table {
+      margin: 0 !important;
+    }
+
+    table tr:last-child td:first-child {
+      border-bottom-left-radius: 15px;
+    }
+
+    table tr:last-child td:last-child {
+      border-bottom-right-radius: 15px;
+    }
+
+    table tr:last-child {
+      border-bottom: transparent;
+    }
+  </style>
 {% endblock head %}
 {% block content %}
 
+  <div class="d-flex justify-content-end mt-4">
+    <a href="{{ url_for("add_inventory_item") }}" class="btn btn-info me-2">Add Single Product</a>
+    <a href="{{ url_for("add_inventory_box") }}" class="btn btn-info">Add Multi-Item Product</a>
+  </div>
+
   <div class="d-flex justify-content-around flex-wrap mb-4">
     {% for box in inventory_boxes %}
-      <div class="stats-container mt-4">
+      <div class="stats-container mt-4 p-0">
         <div>
           <div class="d-flex justify-content-start h-100">
-            <img alt="" height="60" src="{{ url_for("get_paradise_image", image_id=box["image_id"]) }}">
-            <div class="ml-3 stats-edit-header">
+            <img alt="" height="100" style="border-top-left-radius: 15px;" src="{{ url_for("get_paradise_image", image_id=box["image_id"]) }}">
+            <div class="ml-3 stats-edit-header p-2">
               <div class="h3 me-4">{{ box["name"] }}</div>
-              <div class="h5 text-muted">Amount possible: <span data-box-amount="{{ box["_id"] }}">...</span></div>
+              <div class="h5 text-muted"><span class="pe-1">Amount possible:</span> <span data-box-amount="{{ box["_id"] }}">...</span></div>
             </div>
           </div>
           <div>
-            <table class="table table-striped mt-3">
+            <table class="table table-striped">
             <tbody data-box-items="{{ box["_id"] }}">
               {% for item in box["items"] %}
                 <tr>
@@ -32,15 +54,17 @@
     {% endfor %}
 
     {% for item in inventory_items %}
-      <div class="stats-container mt-4">
+      <div class="stats-container mt-4 p-0" style="height: fit-content">
         <div>
           <div class="d-flex justify-content-start h-100">
-            <img alt="" height="60" src="{{ url_for("get_paradise_image", image_id=item["image_id"]) }}">
-            <div class="ml-3 stats-edit-header">
+            <img alt="" height="100" style="border-top-left-radius: 15px; border-bottom-left-radius: 15px;" src="{{ url_for("get_paradise_image", image_id=item["image_id"]) }}">
+            <div class="ml-3 stats-edit-header p-2">
               <div class="h3 me-4">{{ item["name"] }}</div>
-              <button class="btn btn-sm btn-outline-danger" style="width: 34px;" onclick="submit_item_change('{{ item['_id'] }}', -1)"> - </button>
-              <span class="ms-2 me-2" data-item-amount="{{ item["_id"] }}">...</span>
-              <button class="btn btn-sm btn-success" style="width: 34px;" onclick="submit_item_change('{{ item['_id'] }}', 1)"> + </button>
+              <div class="d-flex justify-content-start">
+                <button class="btn btn-sm btn-outline-danger" style="width: 34px;" onclick="submit_item_change('{{ item['_id'] }}', -1)"> - </button>
+                <span class="ms-2 me-2" data-item-amount="{{ item["_id"] }}">...</span>
+                <button class="btn btn-sm btn-success" style="width: 34px;" onclick="submit_item_change('{{ item['_id'] }}', 1)"> + </button>
+              </div>
             </div>
           </div>
         </div>
@@ -84,7 +108,6 @@
 
       function update_item_amounts(item_id, amount) {
           $(`[data-item-amount='${item_id}']`).text(amount)
-          update_box_amounts()
       }
 
       function update_box_amounts() {
@@ -117,6 +140,7 @@
           request_queue.add((callback) => {
               get_ajax_data_result(url, data, function(result) {
                   update_item_amounts(item_id, result["amount"])
+                  update_box_amounts()
                   callback()
               }, function() {
                   alert("Error changing item amount")
@@ -141,6 +165,12 @@
               processData: false
              })
       }
+
+      {% for item in inventory_items %}
+          $("[data-item-amount='{{ item["_id"] }}']").text({{ item["amount"] }})
+          $("[data-item-name='{{ item["_id"] }}']").text("{{ item["name"] }}")
+      {% endfor %}
+      update_box_amounts()
 
   </script>
 {% endblock scripts %}
