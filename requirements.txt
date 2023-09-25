@@ -25,3 +25,6 @@ tzlocal~=4.2
 pymongo[snappy,gssapi,srv,tls]
 dnspython
 certifi
+
+# PHOTO MANIPULATION PILLOW
+Pillow==8.3.2

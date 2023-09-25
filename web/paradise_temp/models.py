@@ -1,6 +1,7 @@
 from web.paradise_temp.db import BaseDocument, DB, DataType, ReferenceType, DictType, ListType
 from datetime import datetime
 from io import BytesIO
+from PIL import Image
 
 
 class Sale(BaseDocument):
@@ -38,17 +39,31 @@ class ParadiseImage(BaseDocument):
         "image": DataType(bytes, nullable=False)
     }
 
-    @staticmethod
-    def upload_image(image):
+    @classmethod
+    def upload_image(cls, image):
         image_data = BytesIO()
         image.data.save(image_data)
         image_data.seek(0)
+        image_data = cls.get_compressed_image(image_data.read(), image.data.filename.split(".")[-1])
         img = ParadiseImage({
             "extension": image.data.filename.split(".")[-1],
             "image": image_data.read()
         })
         img.push()
         return img["_id"]
+
+    @staticmethod
+    def get_compressed_image(image_data, extension):
+        img = Image.open(BytesIO(image_data))
+        x = 300
+        y = int(x * img.size[1] / img.size[0])
+        img.thumbnail((x, y))
+        img_data = BytesIO()
+        img.save(img_data, extension)
+        img_data.seek(0)
+        return img_data
+
+print("hi")
 
 
 class InventoryItem(BaseDocument):
