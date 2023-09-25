@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/paradise_temp.css') }}">
+{% endblock head %}
+{% block content %}
+
+  <div class="d-flex justify-content-around flex-wrap mb-4">
+    {% for box in inventory_boxes %}
+      <div class="stats-container mt-4">
+        <div>
+          <div class="d-flex justify-content-start h-100">
+            <img alt="" height="60" src="{{ url_for("get_paradise_image", image_id=box["image_id"]) }}">
+            <div class="ml-3 stats-edit-header">
+              <div class="h3 me-4">{{ box["name"] }}</div>
+              <div class="h5 text-muted">Amount possible: <span data-box-amount="{{ box["_id"] }}">...</span></div>
+            </div>
+          </div>
+          <div>
+            <table class="table table-striped mt-3">
+            <tbody data-box-items="{{ box["_id"] }}">
+              {% for item in box["items"] %}
+                <tr>
+                  <td class="align-middle"><span data-item-name="{{ item["item_id"] }}">...</span>{% if item["amount"] > 1 %} (x{{ item["amount"] }}){% endif %}</td>
+                  <td><span data-item-amount="{{ item["item_id"] }}" data-item-box-amount="{{ item["amount"] }}">...</span></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    {% for item in inventory_items %}
+      <div class="stats-container mt-4">
+        <div>
+          <div class="d-flex justify-content-start h-100">
+            <img alt="" height="60" src="{{ url_for("get_paradise_image", image_id=item["image_id"]) }}">
+            <div class="ml-3 stats-edit-header">
+              <div class="h3 me-4">{{ item["name"] }}</div>
+              <button class="btn btn-sm btn-outline-danger" style="width: 34px;" onclick="submit_item_change('{{ item['_id'] }}', -1)"> - </button>
+              <span class="ms-2 me-2" data-item-amount="{{ item["_id"] }}">...</span>
+              <button class="btn btn-sm btn-success" style="width: 34px;" onclick="submit_item_change('{{ item['_id'] }}', 1)"> + </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock content %}
+
+{% block scripts %}
+  <script>
+
+      class RequestQueue {
+          // A queue of functions to be executed in order
+          constructor() {
+              this.queue = []
+              this.running = false
+          }
+
+          add(func) {
+              this.queue.push(func)
+              if (!this.running) {
+                  this.run()
+              }
+          }
+
+          run() {
+              this.running = true
+              if (this.queue.length > 0) {
+                  let func = this.queue.shift()
+                  func(() => {
+                      this.run()
+                  })
+              } else {
+                  this.running = false
+              }
+          }
+      }
+
+      const request_queue = new RequestQueue()
+
+      function update_item_amounts(item_id, amount) {
+          $(`[data-item-amount='${item_id}']`).text(amount)
+          update_box_amounts()
+      }
+
+      function update_box_amounts() {
+          $("[data-box-amount]").each(function() {
+              let box_id = $(this).attr("data-box-amount")
+              let items = $(`[data-box-items='${box_id}']`).find("[data-item-box-amount]")
+              let box_amount = 999999999
+              items.each(function() {
+                  let item = $(this)
+                  let item_amount_available = parseInt(item.text())
+                  let item_box_needed = item.attr("data-item-box-amount")
+                  let item_box_amount = Math.floor(item_amount_available / item_box_needed)
+                  if (item_box_amount < box_amount) {
+                      box_amount = item_box_amount
+                  }
+              })
+              if (box_amount === 999999999) {
+                  box_amount = 0
+              }
+              $(this).text(box_amount)
+          })
+      }
+
+      function submit_item_change(item_id, amount_change) {
+          let url = "{{ url_for('modify_inventory') }}";
+          let data = {
+              "item_id": item_id,
+              "amount_change": amount_change
+          };
+          request_queue.add((callback) => {
+              get_ajax_data_result(url, data, function(result) {
+                  update_item_amounts(item_id, result["amount"])
+                  callback()
+              }, function() {
+                  alert("Error changing item amount")
+                  callback()
+              })
+          })
+      }
+
+      function get_ajax_data_result(url, data, success_callback, error_callback) {
+          $.ajax({
+              type: "POST",
+              url: url,
+              data: JSON.stringify(data),
+              contentType: "application/json",
+              success: function(result) {
+                  success_callback(result)
+              },
+              error: function() {
+                  if (error_callback) error_callback()
+              },
+              cache: false,
+              processData: false
+             })
+      }
+
+  </script>
+{% endblock scripts %}
