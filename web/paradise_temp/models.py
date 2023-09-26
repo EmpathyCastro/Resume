@@ -59,11 +59,9 @@ class ParadiseImage(BaseDocument):
         y = int(x * img.size[1] / img.size[0])
         img.thumbnail((x, y))
         img_data = BytesIO()
-        img.save(img_data, extension)
+        img.save(img_data, "JPEG" if extension.lower() == "jpg" else extension.upper())
         img_data.seek(0)
         return img_data
-
-print("hi")
 
 
 class InventoryItem(BaseDocument):
