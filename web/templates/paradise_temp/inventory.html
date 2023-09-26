@@ -43,7 +43,11 @@
               {% for item in box["items"] %}
                 <tr>
                   <td class="align-middle"><span data-item-name="{{ item["item_id"] }}">...</span>{% if item["amount"] > 1 %} (x{{ item["amount"] }}){% endif %}</td>
-                  <td><span data-item-amount="{{ item["item_id"] }}" data-item-box-amount="{{ item["amount"] }}">...</span></td>
+                  <td class="d-flex justify-content-start">
+                    <button class="btn btn-sm btn-outline-danger" style="width: 34px;" onclick="submit_item_change('{{ item['item_id'] }}', -1)"> - </button>
+                    <span class="ms-2 me-2" data-item-amount="{{ item["item_id"] }}" data-item-box-amount="{{ item["amount"] }}">...</span>
+                    <button class="btn btn-sm btn-success" style="width: 34px;" onclick="submit_item_change('{{ item['item_id'] }}', 1)"> + </button>
+                  </td>
                 </tr>
               {% endfor %}
             </tbody>
