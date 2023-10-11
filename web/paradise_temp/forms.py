@@ -11,6 +11,19 @@ class AddInventoryItemForm(FlaskForm):
     submit = SubmitField("Add Product")
 
 
+class EditInventoryItemForm(FlaskForm):
+    name = StringField("Product Name", validators=[DataRequired()])
+    image = FileField("Product Image")
+    submit = SubmitField("Edit Product")
+
+    @classmethod
+    def from_item(cls, item):
+        form = cls(data={
+            "name": item["name"]
+        })
+        return form
+
+
 class InventoryBoxItemForm(FlaskForm):
     item_name = HiddenField()
     item_id = HiddenField()
