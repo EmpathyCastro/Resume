@@ -95,8 +95,23 @@ def edit_inventory_box(box_id):
 def delete_inventory_item():
     item_id = flask.request.form.get("item_id")
     item = InventoryItem.find({"_id": get_obj_id(item_id)}, one=True)
+    delete_from_boxes(item)
     delete_product(item)
     return flask.redirect(flask.url_for("paradise_inventory"))
+
+
+def delete_from_boxes(item):
+    for box in list(InventoryBox.find()):
+        changed = False
+        new_items = []
+        for box_item in box["items"]:
+            if box_item["item_id"] != str(item["_id"]):
+                new_items.append(box_item)
+            else:
+                changed = True
+        if changed:
+            box["items"] = new_items
+            box.push()
 
 
 @app.route("/paradise/delete_inventory_box", methods=["POST"])

@@ -14,7 +14,7 @@ class AddInventoryItemForm(FlaskForm):
 class EditInventoryItemForm(FlaskForm):
     name = StringField("Product Name", validators=[DataRequired()])
     image = FileField("Change Product Image (optional)")
-    submit = SubmitField("Edit Product")
+    submit = SubmitField("Make Changes")
 
     @classmethod
     def from_item(cls, item):
@@ -63,7 +63,7 @@ class AddInventoryBoxForm(FlaskForm):
 
 class EditInventoryBoxForm(AddInventoryBoxForm):
     image = FileField("Change Product Image (optional)")
-    submit = SubmitField("Edit Product")
+    submit = SubmitField("Make Changes")
 
     def update_data(self, box):
         self.name.data = box["name"]
