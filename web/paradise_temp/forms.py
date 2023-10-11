@@ -59,3 +59,15 @@ class AddInventoryBoxForm(FlaskForm):
                 continue
             items.append({"item_id": item.item_id.data, "amount": item.item_amount.data})
         return items
+
+
+class EditInventoryBoxForm(AddInventoryBoxForm):
+    image = FileField("Product Image")
+    submit = SubmitField("Edit Product")
+
+    def update_data(self, box):
+        self.name.data = box["name"]
+        for item_field in self.items:
+            for box_item in box["items"]:
+                if box_item["item_id"] == item_field.item_id.data:
+                    item_field.item_amount.data = box_item["amount"]

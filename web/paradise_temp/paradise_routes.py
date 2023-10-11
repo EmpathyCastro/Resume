@@ -4,7 +4,8 @@ from web import app
 from web.paradise_temp.models import Sale, Product, InventoryItem, InventoryBox, ParadiseImage
 from web.paradise_temp.db import get_obj_id
 from datetime import datetime
-from web.paradise_temp.forms import AddInventoryItemForm, AddInventoryBoxForm, EditInventoryItemForm
+from web.paradise_temp.forms import (AddInventoryItemForm, AddInventoryBoxForm,
+                                     EditInventoryItemForm, EditInventoryBoxForm)
 
 
 @app.route("/paradise")
@@ -70,6 +71,24 @@ def edit_inventory_item(item_id):
         return flask.redirect(flask.url_for("paradise_inventory"))
     return flask.render_template("paradise_temp/add_inventory_item.html",
                                  title="Edit Inventory Item", form=form, edit=True)
+
+
+@app.route("/paradise/edit_inventory_box/<box_id>", methods=["GET", "POST"])
+def edit_inventory_box(box_id):
+    box = InventoryBox.find({"_id": get_obj_id(box_id)}, one=True)
+    form = EditInventoryBoxForm.from_items(list(InventoryItem.find()))
+    if form.validate_on_submit():
+        if form.image.data:
+            ParadiseImage.find({"_id": get_obj_id(box["image_id"])}, one=True).delete()
+            image_id = ParadiseImage.upload_image(form.image)
+            box["image_id"] = image_id
+        box["name"] = form.name.data
+        box["items"] = form.get_items()
+        box.push()
+        return flask.redirect(flask.url_for("paradise_inventory"))
+    form.update_data(box)
+    return flask.render_template("paradise_temp/add_inventory_box.html",
+                                 title="Edit Inventory Box", form=form, edit=True)
 
 
 @app.route("/paradise/delete_inventory_item", methods=["POST"])
