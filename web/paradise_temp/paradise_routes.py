@@ -56,6 +56,27 @@ def add_inventory_box():
                                  title="Add Inventory Box", form=form)
 
 
+@app.route("/paradise/delete_inventory_item", methods=["POST"])
+def delete_inventory_item():
+    item_id = flask.request.form.get("item_id")
+    item = InventoryItem.find({"_id": get_obj_id(item_id)}, one=True)
+    delete_product(item)
+    return flask.redirect(flask.url_for("paradise_inventory"))
+
+
+@app.route("/paradise/delete_inventory_box", methods=["POST"])
+def delete_inventory_box():
+    box_id = flask.request.form.get("item_id")
+    box = InventoryBox.find({"_id": get_obj_id(box_id)}, one=True)
+    delete_product(box)
+    return flask.redirect(flask.url_for("paradise_inventory"))
+
+
+def delete_product(product):
+    ParadiseImage.find({"_id": get_obj_id(product["image_id"])}, one=True).delete()
+    product.delete()
+
+
 @app.route("/paradise/image/<image_id>")
 def get_paradise_image(image_id):
     image = ParadiseImage.find({"_id": get_obj_id(image_id)}, one=True)
