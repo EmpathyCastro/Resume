@@ -1,7 +1,6 @@
 from web import app
 import flask
 from web.routes.dynamicode import get_dynamicode_demo_data
-from web.paradise_temp import paradise_routes
 
 
 @app.errorhandler(404)
@@ -31,9 +30,9 @@ def linkedin():
     return flask.redirect("https://www.linkedin.com/in/empathy-castro/")
 
 
-@app.route("/resume")
-def resume():
-    return flask.render_template("resume.html", no_container=True, splash_text="Resume")
+# @app.route("/resume")
+# def resume():
+#     return flask.render_template("resume.html", no_container=True, splash_text="Resume")
 
 
 @app.route("/portfolio")
