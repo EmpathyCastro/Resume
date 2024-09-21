@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="m-4">
+    <a href="{{ url_for("portfolio") }}" class="text-decoration-none"><span class="fas fa-arrow-left"></span> Back</a>
+  </div>
+
+  <div class="mt-3">
+    <div>
+      <h1 class="text-center gradient-text">Paradise In a Box: Storefront</h1>
+      <div class="mt-4">
+        {% include "project_pages/carousel.html" %}
+      </div>
+      <div class="mt-4">
+        <p>
+          Paradise in a Box, my longest-running client, is a novelty gift box company based in Hawaii. Designed with
+          a modern refreshing style, this Shopify website brings in customers left and right. The site uses various
+          Shopify apps and custom code, enhancing functionality and creating a unique brand.
+        </p>
+      </div>
+      <div class="row mt-4">
+        <div class="col-sm-6 ps-2 pe-2">
+          <h5 class="text-center">Features</h5>
+          <ul>
+            <li>Utilizes Shopify apps and custom code</li>
+          </ul>
+        </div>
+        <div class="col-sm-6 ps-2 pe-2">
+          <h5 class="text-center">Technologies</h5>
+          <div class="mt-2 mb-3 d-flex flex-wrap justify-content-center">
+            <div class="tech-div">
+              <div class="tech-div">
+                <img alt="shopify" src="{{ url_for("static", filename="img/tech_icons/shopify.png") }}">
+                <span>Shopify</span>
+              </div>
+              <div class="tech-div">
+                <img alt="css" src="{{ url_for("static", filename="img/tech_icons/css.png") }}">
+                <span>CSS</span>
+              </div>
+              <div class="tech-div">
+                <img alt="html" src="{{ url_for("static", filename="img/tech_icons/html.png") }}">
+                <span>HTML</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

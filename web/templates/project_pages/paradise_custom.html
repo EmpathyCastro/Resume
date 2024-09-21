@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="m-4">
+    <a href="{{ url_for("portfolio") }}" class="text-decoration-none"><span class="fas fa-arrow-left"></span> Back</a>
+  </div>
+
+  <div class="mt-3">
+    <div>
+      <h1 class="text-center gradient-text">Paradise In a Box: Custom Orders</h1>
+      <div class="mt-4">
+        {% include "project_pages/carousel.html" %}
+      </div>
+      <div class="mt-4">
+        <p>
+          A completely custom-made website for my longest-running client, Paradise in a Box. The website, utilizing
+          a whole set of technologies, allows users to create and customize their own products. Individual customers
+          can pay for their custom products and have them shipped, using the Stripe API. Large customers can place
+          bulk orders, which are processed differently.
+        </p>
+      </div>
+      <div class="row mt-4">
+        <div class="col-sm-6 ps-2 pe-2">
+          <h5 class="text-center">Features</h5>
+          <ul>
+            <li>CSS rendered using SCSS based on the Bootstrap framework.</li>
+          </ul>
+        </div>
+        <div class="col-sm-6 ps-2 pe-2">
+          <h5 class="text-center">Technologies</h5>
+          <div class="mt-2 mb-3 d-flex flex-wrap justify-content-center">
+            <div class="tech-div">
+              <img alt="digital ocean" src="{{ url_for("static", filename="img/tech_icons/digitalocean.png") }}">
+              <span>Digital Ocean</span>
+            </div>
+            <div class="tech-div">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/python.png") }}">
+              <img alt="flask" src="{{ url_for("static", filename="img/tech_icons/flask.png") }}">
+              <span>Python + Flask</span>
+            </div>
+            <div class="tech-div">
+              <img alt="bootstrap" src="{{ url_for("static", filename="img/tech_icons/bootstrap.png") }}">
+              <span>Bootstrap</span>
+            </div>
+            <div class="tech-div">
+              <img alt="mongodb" src="{{ url_for("static", filename="img/tech_icons/mongodb.png") }}">
+              <span>MongoDB</span>
+            </div>
+            <div class="tech-div">
+              <img alt="gmail" src="{{ url_for("static", filename="img/tech_icons/gmail.png") }}">
+              <span>Gmail API</span>
+            </div>
+            <div class="tech-div">
+              <img alt="jquery" src="{{ url_for("static", filename="img/tech_icons/jquery.png") }}">
+              <span>jQuery</span>
+            </div>
+            <div class="tech-div">
+              <img alt="stripe" src="{{ url_for("static", filename="img/tech_icons/stripe.png") }}">
+              <span>Stripe API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

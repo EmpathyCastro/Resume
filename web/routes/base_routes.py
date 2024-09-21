@@ -49,7 +49,10 @@ def projects(project):
         "paradise_box": "project_pages/paradise_box.html",
         "psp_attendance": "project_pages/psp_attendance.html",
         "site_management": "project_pages/site_management.html",
-        "cve_dashboard": "project_pages/cve_dashboard.html"
+        "cve_dashboard": "project_pages/cve_dashboard.html",
+        "libros_for_kids": "project_pages/libros_for_kids.html",
+        "paradise_shopify": "project_pages/paradise_shopify.html",
+        "paradise_custom": "project_pages/paradise_custom.html",
     }
     if project in project_pages:
         return flask.render_template(project_pages[project], demo=get_dynamicode_demo_data(),
@@ -111,6 +114,30 @@ def get_project_images(project):
              "alt": "CVE Dashboard Top Vulnerabilities Page"},
             {"src": flask.url_for("static", filename="img/projects/cve_dashboard/img3.jpeg"),
              "alt": "CVE Dashboard Products Page"}
+        ],
+        "libros_for_kids": [
+            {"src": flask.url_for("static", filename="img/projects/libros_for_kids/thumbnail.png"),
+             "alt": "home page"},
+            {"src": flask.url_for("static", filename="img/projects/libros_for_kids/img1.png"),
+             "alt": "about us"},
+            {"src": flask.url_for("static", filename="img/projects/libros_for_kids/img2.png"),
+             "alt": "spanish"},
+        ],
+        "paradise_shopify": [
+            {"src": flask.url_for("static", filename="img/projects/paradise_shopify/thumbnail.png"),
+             "alt": "home page"},
+            {"src": flask.url_for("static", filename="img/projects/paradise_shopify/img1.png"),
+             "alt": "about us"},
+            {"src": flask.url_for("static", filename="img/projects/paradise_shopify/img2.png"),
+             "alt": "products"},
+            {"src": flask.url_for("static", filename="img/projects/paradise_shopify/img3.png"),
+             "alt": "contact"},
+        ],
+        "paradise_custom": [
+            {"src": flask.url_for("static", filename="img/projects/paradise_custom/thumbnail.png"),
+             "alt": "home page"},
+            {"src": flask.url_for("static", filename="img/projects/paradise_custom/img1.png"),
+             "alt": "pick items"},
         ]
     }
     return data.get(project)
