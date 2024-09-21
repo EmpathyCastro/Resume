@@ -9,15 +9,15 @@ httplib2==0.20.4
 Flask==1.1.4
 Jinja2==2.11.3
 itsdangerous==1.1.0
-flask_script
-flask_wtf
+flask-script
+flask-wtf
 # If using a mac run the brew command and install pymongo without snappy
 # brew install snappy
 # pymongo[gssapi,srv,tls]==4.0.1
 # pymongo[snappy,gssapi,srv,tls]==4.0.1
 # certifi~=2021.10.8
 WTForms==3.0.1
-email_validator
+email-validator
 werkzeug==0.16.1
 tzlocal~=4.2
 
